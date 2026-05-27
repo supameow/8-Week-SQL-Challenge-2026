@@ -333,21 +333,21 @@ order by customer_id;
 
 | customer_id | order_date | product_name | price | ranking |
 | ----------- | ---------- | ------------ | ----- | ------- |
-| A           | 2021-01-01 | sushi        | 10    |  Null   |
-| A           | 2021-01-01 | curry        | 15    |  Null   |
+| A           | 2021-01-01 | sushi        | 10    |  NULL   |
+| A           | 2021-01-01 | curry        | 15    |  NULL   |
 | A           | 2021-01-07 | curry        | 15    | 1       |
 | A           | 2021-01-10 | ramen        | 12    | 2       |
 | A           | 2021-01-11 | ramen        | 12    | 3       |
 | A           | 2021-01-11 | ramen        | 12    | 3       |
-| B           | 2021-01-01 | curry        | 15    |  Null   |
-| B           | 2021-01-02 | curry        | 15    |  Null   |
-| B           | 2021-01-04 | sushi        | 10    |  Null   |
+| B           | 2021-01-01 | curry        | 15    |  NULL   |
+| B           | 2021-01-02 | curry        | 15    |  NULL   |
+| B           | 2021-01-04 | sushi        | 10    |  NULL   |
 | B           | 2021-01-11 | sushi        | 10    | 1       |
 | B           | 2021-01-16 | ramen        | 12    | 2       |
 | B           | 2021-02-01 | ramen        | 12    | 3       |
-| C           | 2021-01-01 | ramen        | 12    |  Null   |
-| C           | 2021-01-01 | ramen        | 12    |  Null   |
-| C           | 2021-01-07 | ramen        | 12    |  Null   |
+| C           | 2021-01-01 | ramen        | 12    |  NULL   |
+| C           | 2021-01-01 | ramen        | 12    |  NULL   |
+| C           | 2021-01-07 | ramen        | 12    |  NULL   |
 
 ---
 
