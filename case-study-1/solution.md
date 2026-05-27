@@ -298,5 +298,59 @@
 | B           | 320         |
 
 ---
+### Bonus question
+```sql
+with order_list as
+(select 
+s.customer_id,
+s.order_date,
+m.product_name,
+m.price,
+case
+when s.order_date >= me.join_date then 'Y'
+else 'N'
+end as member_status
+from sales s
+left join menu m
+on s.product_id = m.product_id
+left join members me
+on s.customer_id = me.customer_id)
+
+select
+customer_id,
+order_date,
+product_name,
+price,
+case
+when member_status ='Y'
+then dense_rank() 
+over (partition by customer_id,member_status order by order_date)
+else NULL
+end as ranking
+from order_list
+order by customer_id;
+```
+
+| customer_id | order_date | product_name | price | ranking |
+| ----------- | ---------- | ------------ | ----- | ------- |
+| A           | 2021-01-01 | sushi        | 10    |         |
+| A           | 2021-01-01 | curry        | 15    |         |
+| A           | 2021-01-07 | curry        | 15    | 1       |
+| A           | 2021-01-10 | ramen        | 12    | 2       |
+| A           | 2021-01-11 | ramen        | 12    | 3       |
+| A           | 2021-01-11 | ramen        | 12    | 3       |
+| B           | 2021-01-01 | curry        | 15    |         |
+| B           | 2021-01-02 | curry        | 15    |         |
+| B           | 2021-01-04 | sushi        | 10    |         |
+| B           | 2021-01-11 | sushi        | 10    | 1       |
+| B           | 2021-01-16 | ramen        | 12    | 2       |
+| B           | 2021-02-01 | ramen        | 12    | 3       |
+| C           | 2021-01-01 | ramen        | 12    |         |
+| C           | 2021-01-01 | ramen        | 12    |         |
+| C           | 2021-01-07 | ramen        | 12    |         |
+
+---
+
+[View on DB Fiddle](https://www.db-fiddle.com/f/2rM8RAnq7h5LLDTzZiRWcd/138)
 
 [View on DB Fiddle](https://www.db-fiddle.com/f/2rM8RAnq7h5LLDTzZiRWcd/138)
