@@ -170,20 +170,18 @@ select
 s.customer_id,
 sum(
   case
-  when (s.order_date < me.join_date or (s.order_date-me.join_date)>6)
-  and m.product_name='sushi'
+  when (s.order_date between me.join_date and (me.join_date+6)) or m.product_name = 'sushi' 
   then m.price*20
-  when (s.order_date < me.join_date or (s.order_date-me.join_date)>6)
-  and m.product_name<>'sushi'
-  then m.price*10
-  else m.price*20
+  else m.price*10
   end) as total_point
 from sales s
 left join menu m
 on s.product_id=m.product_id
 left join members me
 on s.customer_id = me.customer_id
-where s.order_date<= '2021-01-31' 
+where 
+s.order_date<= '2021-01-31' 
+and s.order_date>= me.join_date
 and s.customer_id IN ('A', 'B')
 group by s.customer_id
-order by s.customer_id;
+order by s.customer_id;;
