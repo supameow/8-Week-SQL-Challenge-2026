@@ -1,5 +1,3 @@
-**Query #1**
-
     /* --------------------
        Case Study Questions
        --------------------*/
@@ -16,8 +14,9 @@
     -- 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
     
     
-    -- Task 1: What is the total amount each customer spent at the restaurant?
-    
+-- Task 1: What is the total amount each customer spent at the restaurant?
+
+```sql
     select
       s.customer_id,
       sum (m.price)
@@ -26,6 +25,7 @@
     on s.product_id = m.product_id
     group by s.customer_id
     order by customer_id;
+```
 
 | customer_id | sum |
 | ----------- | --- |
@@ -37,13 +37,14 @@
 **Query #2**
 
     -- Task 2: How many days has each customer visited the restaurant?
-    
+```sql  
     select 
        customer_id,
        count(distinct order_date)
     from sales
     group by customer_id
     order by customer_id;
+```
 
 | customer_id | count |
 | ----------- | ----- |
@@ -55,7 +56,7 @@
 **Query #3**
 
     -- Task 3: What was the first item from the menu purchased by each customer?
-    
+```sql
     select
        distinct s.customer_id,
        m.product_name
@@ -67,6 +68,7 @@
      min(s2.order_date) 
      from sales s2
      where s.customer_id = s2.customer_id);
+```
 
 | customer_id | product_name |
 | ----------- | ------------ |
@@ -79,7 +81,7 @@
 **Query #4**
 
     -- Task 4 What is the most purchased item on the menu and how many times was it purchased by all customers?
-```
+```sql
      with product_count as
      (
      select
@@ -111,7 +113,7 @@
 **Query #5**
 
     -- Task 5: Which item was the most popular for each customer?
-    
+```sql
     with item as
     (
     select 
@@ -135,6 +137,7 @@
         from item i1
         where i1.customer_id = i.customer_id)   
      order by customer_id;
+```
 
 | customer_id | product_name | id_count |
 | ----------- | ------------ | -------- |
@@ -148,7 +151,7 @@
 **Query #6**
 
     -- Task 6: Which item was purchased first by the customer after they became a member?
-     
+```sql
      with after_join as 
      (
        select 
@@ -168,6 +171,7 @@
         from after_join a1
         where a.customer_id=a1.customer_id)
        order by customer_id;
+```
 
 | customer_id | product_name | order_date |
 | ----------- | ------------ | ---------- |
@@ -178,7 +182,7 @@
 **Query #7**
 
     -- Task 7: Which item was purchased just before the customer became a member?
-    
+```sql
      with after_join as 
      (
        select 
@@ -198,8 +202,9 @@
         from after_join a1
         where a.customer_id=a1.customer_id)
        order by customer_id;
+```
 
-| customer_id | product_name | order_date |
+|1 customer_id | product_name | order_date |
 | ----------- | ------------ | ---------- |
 | A           | sushi        | 2021-01-01 |
 | A           | curry        | 2021-01-01 |
@@ -209,7 +214,7 @@
 **Query #8**
 
     -- Task 8: What is the total items and amount spent for each member before they became a member?
-    
+```sql
     select 
        s.customer_id,
        count(s.product_id) as total_items,
@@ -222,6 +227,7 @@
        where s.order_date < me.join_date
        group by s.customer_id
        order by s.customer_id;
+```
 
 | customer_id | total_items | total_amount |
 | ----------- | ----------- | ------------ |
@@ -232,7 +238,7 @@
 **Query #9**
 
     -- Task 9: If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
-     
+```sql
     with total_spend as
     (
     select 
@@ -252,6 +258,7 @@
     from total_spend
     group by customer_id
     order by customer_id;
+```
 
 | customer_id | sum |
 | ----------- | --- |
@@ -263,7 +270,7 @@
 **Query #10**
 
     -- Task 10: In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January
-    
+```sql
     select 
     s.customer_id,
     sum(
@@ -283,6 +290,7 @@
     and s.customer_id IN ('A', 'B')
     group by s.customer_id
     order by s.customer_id;
+```
 
 | customer_id | total_point |
 | ----------- | ----------- |
