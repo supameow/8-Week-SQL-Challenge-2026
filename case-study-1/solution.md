@@ -1,6 +1,6 @@
-    /* --------------------
+</> Markdown
+Case Study #1 - Danny's Diner
        Case Study Questions
-       --------------------*/
     
     -- 1. What is the total amount each customer spent at the restaurant?
     -- 2. How many days has each customer visited the restaurant?
