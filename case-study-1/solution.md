@@ -1,20 +1,20 @@
-</> Markdown
+
 Case Study #1 - Danny's Diner
-       Case Study Questions
+
+Case Study Questions
+   1. What is the total amount each customer spent at the restaurant?
+   2. How many days has each customer visited the restaurant?
+   3. What was the first item from the menu purchased by each customer?
+   4. What is the most purchased item on the menu and how many times was it purchased by all customers?
+   5. Which item was the most popular for each customer?
+   6. Which item was purchased first by the customer after they became a member?
+   7. Which item was purchased just before the customer became a member?
+   8. What is the total items and amount spent for each member before they became a member?
+   9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
+   10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
     
-    -- 1. What is the total amount each customer spent at the restaurant?
-    -- 2. How many days has each customer visited the restaurant?
-    -- 3. What was the first item from the menu purchased by each customer?
-    -- 4. What is the most purchased item on the menu and how many times was it purchased by all customers?
-    -- 5. Which item was the most popular for each customer?
-    -- 6. Which item was purchased first by the customer after they became a member?
-    -- 7. Which item was purchased just before the customer became a member?
-    -- 8. What is the total items and amount spent for each member before they became a member?
-    -- 9.  If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
-    -- 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
     
-    
--- Task 1: What is the total amount each customer spent at the restaurant?
+Task 1: What is the total amount each customer spent at the restaurant?
 
 ```sql
     select
@@ -34,9 +34,9 @@ Case Study #1 - Danny's Diner
 | C           | 36  |
 
 ---
-**Query #2**
 
-    -- Task 2: How many days has each customer visited the restaurant?
+
+Task 2: How many days has each customer visited the restaurant?
 ```sql  
     select 
        customer_id,
@@ -53,9 +53,9 @@ Case Study #1 - Danny's Diner
 | C           | 2     |
 
 ---
-**Query #3**
 
-    -- Task 3: What was the first item from the menu purchased by each customer?
+
+Task 3: What was the first item from the menu purchased by each customer?
 ```sql
     select
        distinct s.customer_id,
@@ -78,9 +78,9 @@ Case Study #1 - Danny's Diner
 | C           | ramen        |
 
 ---
-**Query #4**
 
-    -- Task 4 What is the most purchased item on the menu and how many times was it purchased by all customers?
+
+Task 4 What is the most purchased item on the menu and how many times was it purchased by all customers?
 ```sql
      with product_count as
      (
@@ -110,9 +110,9 @@ Case Study #1 - Danny's Diner
 | ramen        | 8     |
 
 ---
-**Query #5**
 
-    -- Task 5: Which item was the most popular for each customer?
+
+Task 5: Which item was the most popular for each customer?
 ```sql
     with item as
     (
@@ -148,9 +148,9 @@ Case Study #1 - Danny's Diner
 | C           | ramen        | 3        |
 
 ---
-**Query #6**
 
-    -- Task 6: Which item was purchased first by the customer after they became a member?
+
+Task 6: Which item was purchased first by the customer after they became a member?
 ```sql
      with after_join as 
      (
@@ -179,9 +179,9 @@ Case Study #1 - Danny's Diner
 | B           | sushi        | 2021-01-11 |
 
 ---
-**Query #7**
 
-    -- Task 7: Which item was purchased just before the customer became a member?
+
+Task 7: Which item was purchased just before the customer became a member?
 ```sql
      with after_join as 
      (
@@ -211,9 +211,9 @@ Case Study #1 - Danny's Diner
 | B           | sushi        | 2021-01-04 |
 
 ---
-**Query #8**
 
-    -- Task 8: What is the total items and amount spent for each member before they became a member?
+
+Task 8: What is the total items and amount spent for each member before they became a member?
 ```sql
     select 
        s.customer_id,
@@ -235,9 +235,9 @@ Case Study #1 - Danny's Diner
 | B           | 3           | 40           |
 
 ---
-**Query #9**
 
-    -- Task 9: If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
+
+Task 9: If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
 ```sql
     with total_spend as
     (
@@ -267,9 +267,9 @@ Case Study #1 - Danny's Diner
 | C           | 360 |
 
 ---
-**Query #10**
 
-    -- Task 10: In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January
+
+Task 10: In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January
 ```sql
     select 
     s.customer_id,
