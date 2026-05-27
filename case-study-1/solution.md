@@ -302,31 +302,31 @@
 ```sql
 with order_list as
 (select 
-s.customer_id,
-s.order_date,
-m.product_name,
-m.price,
-case
-when s.order_date >= me.join_date then 'Y'
-else 'N'
-end as member_status
-from sales s
-left join menu m
-on s.product_id = m.product_id
-left join members me
-on s.customer_id = me.customer_id)
+   s.customer_id,
+   s.order_date,
+   m.product_name,
+   m.price,
+ case
+ when s.order_date >= me.join_date then 'Y'
+ else 'N'
+ end as member_status
+ from sales s
+ left join menu m
+ on s.product_id = m.product_id
+ left join members me
+ on s.customer_id = me.customer_id)
 
 select
-customer_id,
-order_date,
-product_name,
-price,
-case
-when member_status ='Y'
-then dense_rank() 
-over (partition by customer_id,member_status order by order_date)
-else NULL
-end as ranking
+   customer_id,
+   order_date,
+   product_name,
+   price,
+   case
+   when member_status ='Y'
+   then dense_rank() 
+   over (partition by customer_id,member_status order by order_date)
+   else NULL
+   end as ranking
 from order_list
 order by customer_id;
 ```
