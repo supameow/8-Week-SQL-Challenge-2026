@@ -24,7 +24,7 @@
     left join menu m
     on s.product_id = m.product_id
     group by s.customer_id
-    order by customer_id;
+    order by s.customer_id;
 ```
 
 | customer_id | sum |
