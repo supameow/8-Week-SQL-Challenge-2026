@@ -109,12 +109,10 @@ Task 6. What was the maximum number of pizzas delivered in a single order?
      select
         max(pizza_count)
      from pizza_counts;
-```sql
+```
 
 | max |
 | --- |
 | 3   |
-
----
 
 [View on DB Fiddle](https://www.db-fiddle.com/f/7VcQKQwsS3CTkGRFG7vu98/65)
