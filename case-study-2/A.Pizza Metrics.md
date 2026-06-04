@@ -1,6 +1,17 @@
-# Case Study #2 - Pizza Runner
-## A. Pizza Metrics
-Task 1. How many pizzas were ordered?
+# Case Study #2 - Pizza Runner - A. Pizza Metrics
+## Case Study Questions
+1. How many pizzas were ordered?
+2. How many unique customer orders were made?
+3. How many successful orders were delivered by each runner?
+4. How many of each type of pizza was delivered?
+5. How many Vegetarian and Meatlovers were ordered by each customer?
+6. What was the maximum number of pizzas delivered in a single order?
+7. For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
+8. How many pizzas were delivered that had both exclusions and extras?
+9. What was the total volume of pizzas ordered for each hour of the day?
+10. What was the volume of orders for each day of the week?
+## Solution
+### Task 1. How many pizzas were ordered?
 ```sql
     select 
        count(*)
@@ -13,7 +24,7 @@ Task 1. How many pizzas were ordered?
 
 ---
 
-Task 2. How many unique customer orders were made?
+### Task 2. How many unique customer orders were made?
 ```sql 
     select 
        count(distinct order_id)
@@ -26,7 +37,7 @@ Task 2. How many unique customer orders were made?
 
 ---
 
-Task 3. How many successful orders were delivered by each runner?
+### Task 3. How many successful orders were delivered by each runner?
 ```sql
     select 
        runner_id,
@@ -45,7 +56,7 @@ Task 3. How many successful orders were delivered by each runner?
 
 ---
 
-Task 4. How many of each type of pizza was delivered?
+### Task 4. How many of each type of pizza was delivered?
 ```
     select 
        p.pizza_name,
@@ -66,7 +77,7 @@ Task 4. How many of each type of pizza was delivered?
 
 ---
 
-Task 5. How many Vegetarian and Meatlovers were ordered by each customer?
+### Task 5. How many Vegetarian and Meatlovers were ordered by each customer?
 ```sql
     select 
        c.customer_id,
@@ -94,7 +105,7 @@ Task 5. How many Vegetarian and Meatlovers were ordered by each customer?
 
 ---
 
-Task 6. What was the maximum number of pizzas delivered in a single order?
+### Task 6. What was the maximum number of pizzas delivered in a single order?
 ```sql
     with pizza_counts as
      (select
@@ -116,7 +127,7 @@ Task 6. What was the maximum number of pizzas delivered in a single order?
 
 ---
 
-Task 7. For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
+### Task 7. For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
  ```sql   
     with pizza_remark as
     (select
@@ -148,7 +159,7 @@ Task 7. For each customer, how many delivered pizzas had at least 1 change and h
 | 105         | change    | 1     |
 
 ---
-Task 8. How many pizzas were delivered that had both exclusions and extras?
+### Task 8. How many pizzas were delivered that had both exclusions and extras?
 ```sql   
     select
        count(c.pizza_id) as pizza_excl_extra
@@ -166,7 +177,7 @@ Task 8. How many pizzas were delivered that had both exclusions and extras?
 | 1                |
 
 ---
-Task 9. What was the total volume of pizzas ordered for each hour of the day?
+### Task 9. What was the total volume of pizzas ordered for each hour of the day?
 ```sql   
     select 
        extract(hour from order_time) as hour_of_the_day,
@@ -186,7 +197,7 @@ Task 9. What was the total volume of pizzas ordered for each hour of the day?
 | 23              | 3           |
 
 ---
-Task 10. What was the volume of orders for each day of the week?
+### Task 10. What was the volume of orders for each day of the week?
 ```sql    
     select 
        to_char(order_time,'day') as day_of_week,
