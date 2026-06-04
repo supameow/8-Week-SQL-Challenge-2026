@@ -1,5 +1,5 @@
-* Fix the tables
-*** table: customer_orders
+# Fix the tables
+### table: customer_orders
   ```sql
     create temp table customer_orders_temp as 
     select
@@ -38,7 +38,7 @@
 | 10       | 104         | 1        | 2, 6       | 1, 4   | 2020-01-11 18:34:49 |
 
 ---
-*** table: runner_orders
+### table: runner_orders
   ```sql
     create temp table runner_orders_temp as 
     select 
