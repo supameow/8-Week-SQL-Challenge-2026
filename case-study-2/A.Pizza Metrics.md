@@ -93,7 +93,6 @@ Task 5. How many Vegetarian and Meatlovers were ordered by each customer?
 | 105         | Vegetarian | 1               |
 
 ---
-**Query #10**
 
 Task 6. What was the maximum number of pizzas delivered in a single order?
 ```sql
