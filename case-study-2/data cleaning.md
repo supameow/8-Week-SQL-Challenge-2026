@@ -2,22 +2,24 @@
 ### table: customer_orders
 ```sql
     create temp table customer_orders_temp as 
-    select
-       order_id,
-       customer_id,
-       pizza_id, 
-       case 
-        when exclusions is null or exclusions= 'null' then ' '
-        else exclusions
-        end as exclusions,
-       case
-        when extras in ('NaN','null') or extras is null then ' '
-        else extras
-        end as extras,
-       order_time
-    from customer_orders;
+select
+   order_id,
+   customer_id,
+   pizza_id, 
+   case 
+    when exclusions is null or exclusions= 'null' or trim(exclusions)=''
+    then ' '
+    else exclusions
+    end as exclusions,
+   case
+    when extras in ('NaN','null') or extras is null or trim(extras)=''
+    then ' '
+    else extras
+    end as extras,
+   order_time
+from customer_orders;
 
-    select * from customer_orders_temp;
+select * from customer_orders_temp;
 ```
 
 | order_id | customer_id | pizza_id | exclusions | extras | order_time          |
@@ -40,20 +42,29 @@
 ---
 ### table: runner_orders
 ```sql
-    create temp table runner_orders_temp as 
-    select 
-       order_id,
-       runner_id,
-       pickup_time,
-       distance,
-       duration,
-       case
-        when cancellation in ('NaN','null') or cancellation is null then ' '
-        else cancellation
-        end as cancellation
-    from runner_orders;
+create temp table runner_orders_temp as 
+select 
+   order_id,
+   runner_id,
+   case
+    when pickup_time is null or pickup_time= 'null' then ' '
+    else pickup_time
+   end as pickup_time,
+   case
+    when distance is null or distance= 'null' then ' '
+    else distance
+   end as distance,
+   case
+    when duration is null or duration= 'null' then ' '
+    else duration
+   end as duration,   
+   case
+    when cancellation in ('NaN','null') or cancellation is null then ' '
+    else cancellation
+    end as cancellation
+from runner_orders;
 
-    select * from runner_orders_temp;
+select * from runner_orders_temp;
 ```
 
 | order_id | runner_id | pickup_time         | distance | duration   | cancellation            |
@@ -63,10 +74,10 @@
 | 3        | 1         | 2020-01-03 00:12:37 | 13.4km   | 20 mins    |                         |
 | 4        | 2         | 2020-01-04 13:53:03 | 23.4     | 40         |                         |
 | 5        | 3         | 2020-01-08 21:10:57 | 10       | 15         |                         |
-| 6        | 3         | null                | null     | null       | Restaurant Cancellation |
+| 6        | 3         |                     |          |            | Restaurant Cancellation |
 | 7        | 2         | 2020-01-08 21:30:45 | 25km     | 25mins     |                         |
 | 8        | 2         | 2020-01-10 00:15:02 | 23.4 km  | 15 minute  |                         |
-| 9        | 2         | null                | null     | null       | Customer Cancellation   |
+| 9        | 2         |                     |          |            | Customer Cancellation   |
 | 10       | 1         | 2020-01-11 18:50:20 | 10km     | 10minutes  |                         |
 
 ---
