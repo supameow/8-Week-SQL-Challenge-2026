@@ -1,6 +1,6 @@
 # Fix the tables
 ### table: customer_orders
-  ```sql
+```sql
     create temp table customer_orders_temp as 
     select
        order_id,
@@ -18,7 +18,7 @@
     from customer_orders;
 
     select * from customer_orders_temp;
-    ```
+```
 
 | order_id | customer_id | pizza_id | exclusions | extras | order_time          |
 | -------- | ----------- | -------- | ---------- | ------ | ------------------- |
@@ -39,7 +39,7 @@
 
 ---
 ### table: runner_orders
-  ```sql
+```sql
     create temp table runner_orders_temp as 
     select 
        order_id,
@@ -54,7 +54,7 @@
     from runner_orders;
 
     select * from runner_orders_temp;
-    ```
+```
 
 | order_id | runner_id | pickup_time         | distance | duration   | cancellation            |
 | -------- | --------- | ------------------- | -------- | ---------- | ----------------------- |
