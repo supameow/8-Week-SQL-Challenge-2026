@@ -1,6 +1,6 @@
 # Fix the tables
 ### table: customer_orders
-
+All the blanks in exclusions or extras go to null
 ```sql
     create temp table customer_orders_temp as 
     select
@@ -43,6 +43,9 @@
 ---
 
 ### table: runner_orders
+I standardized a few things: 
+- All the blanks (failed orders) go to null
+- distance and duration are in numeric form for further calculation
 ```sql
     create temp table runner_orders_temp as 
     select 
