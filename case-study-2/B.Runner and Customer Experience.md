@@ -48,6 +48,7 @@ Task 2. What was the average time in minutes it took for each runner to arrive a
 ---
 
 Task 3. Is there any relationship between the number of pizzas and how long the order takes to prepare?
+
 I made this one a bit different compared to others, not sure abt this.
 ```sql    
     select
