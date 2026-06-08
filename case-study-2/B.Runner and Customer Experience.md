@@ -1,6 +1,6 @@
 # 🍕 Case Study #2 - Pizza Runner
 ## B. Runner and Customer Experience
-## Case study questions
+## Case Study Questions
 1. How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)
 2. What was the average time in minutes it took for each runner to arrive at the Pizza Runner HQ to pickup the order?
 3. Is there any relationship between the number of pizzas and how long the order takes to prepare?
