@@ -27,7 +27,7 @@ Task 1. How many runners signed up for each 1 week period? (i.e. week starts 202
 
 ---
 
-Task 2 What was the average time in minutes it took for each runner to arrive at the Pizza Runner HQ to pickup the order?
+Task 2. What was the average time in minutes it took for each runner to arrive at the Pizza Runner HQ to pickup the order?
 ```sql    
     select 
        r.runner_id,
@@ -47,7 +47,7 @@ Task 2 What was the average time in minutes it took for each runner to arrive at
 
 ---
 
-Task 3 Is there any relationship between the number of pizzas and how long the order takes to prepare?
+Task 3. Is there any relationship between the number of pizzas and how long the order takes to prepare?
 ```sql    
     select
        c.order_id,
@@ -73,7 +73,7 @@ Task 3 Is there any relationship between the number of pizzas and how long the o
 
 ---
 
-Task 4 What was the average distance travelled for each customer?
+Task 4. What was the average distance travelled for each customer?
 ```sql    
     select 
        c.customer_id,
@@ -95,7 +95,7 @@ Task 4 What was the average distance travelled for each customer?
 
 ---
 
-Task 5 What was the difference between the longest and shortest delivery times for all orders?
+Task 5. What was the difference between the longest and shortest delivery times for all orders?
 ```sql    
     select 
        max(duration) - min(duration) as duration_gap
@@ -108,7 +108,7 @@ Task 5 What was the difference between the longest and shortest delivery times f
 
 ---
 
-Task 6 What was the average speed for each runner for each delivery and do you notice any trend for these values?
+Task 6. What was the average speed for each runner for each delivery and do you notice any trend for these values?
 ```sql    
     select 
        r.order_id,
@@ -140,7 +140,7 @@ Task 6 What was the average speed for each runner for each delivery and do you n
 | 5        | 1     | 3         | 10       | 15       | 40.00 |
 
 ---
-Task 7 What is the successful delivery percentage for each runner?
+Task 7. What is the successful delivery percentage for each runner?
 ```sql    
     with successful_remark as 
     (select
