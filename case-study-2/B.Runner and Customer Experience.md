@@ -50,6 +50,8 @@ Task 2. What was the average time in minutes it took for each runner to arrive a
 Task 3. Is there any relationship between the number of pizzas and how long the order takes to prepare?
 
 I made this one a bit different compared to others, not sure abt this.
+
+We can see that the more pizza the more time it takes (1 pizza takes ~10m, 2 pizza take ~15-21m and 3 take 29m) and order_id 8 is quite abnormal which is 1 pizza but 20m.
 ```sql    
     select
        c.order_id,
