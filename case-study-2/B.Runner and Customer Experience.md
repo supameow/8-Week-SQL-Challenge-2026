@@ -48,6 +48,7 @@ Task 2. What was the average time in minutes it took for each runner to arrive a
 ---
 
 Task 3. Is there any relationship between the number of pizzas and how long the order takes to prepare?
+I made this one a bit different compared to others, not sure abt this.
 ```sql    
     select
        c.order_id,
@@ -109,6 +110,7 @@ Task 5. What was the difference between the longest and shortest delivery times 
 ---
 
 Task 6. What was the average speed for each runner for each delivery and do you notice any trend for these values?
+
 ```sql    
     select 
        r.order_id,
@@ -128,6 +130,8 @@ Task 6. What was the average speed for each runner for each delivery and do you 
        r.duration
     order by r.runner_id;
 ```
+order_id 8 of runner_id 2 is a bit abnormal with speed at 93km/h, compared to others (~40km) this dude probably raced.
+
 | order_id | count | runner_id | distance | duration | speed |
 | -------- | ----- | --------- | -------- | -------- | ----- |
 | 1        | 1     | 1         | 20       | 32       | 37.50 |
@@ -139,7 +143,6 @@ Task 6. What was the average speed for each runner for each delivery and do you 
 | 4        | 3     | 2         | 23.4     | 40       | 35.10 |
 | 5        | 1     | 3         | 10       | 15       | 40.00 |
 
-order_id 8 of runner_id 2 is a bit abnormal with speed at 93km/h, compared to others (~40km) this dude probably raced with cars.
 ---
 Task 7. What is the successful delivery percentage for each runner?
 ```sql    
